@@ -1,8 +1,8 @@
 #Daire Carroll 2024. Gothenburg university Department of Biological and Environmental Science, carrolldaire@gmail.com
 #Script to resample a dataset of scat samples to determine the influence of sample sice on richness and diversity (Shannon index)
 
-setwd("C:/Users/daire/Desktop/Projects/Otioliths")
-my.data = read.csv("raw_data_norway_sept2020 .csv", sep = ",", header = TRUE)
+setwd("") #insert location of Example_Data.csv file
+my.data = read.csv("Example_Data.csv", sep = ",", header = TRUE)
 head(my.data)
 attach(my.data)
 
