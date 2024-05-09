@@ -23,15 +23,13 @@ indexes = function(data){
   
   Shannon = -sum((n/N)*log(n/N))
   
-  return(list("Total" = Total, "Simpson" = Simpson, "Shannon" = Shannon))
+  return(list("Total" = Total, "Shannon" = Shannon))
   
 } 
 
-indexes(my.data)
-
 resamp = function(data,se,N){
   
-  vals = c("Sample_Size","Mean_Total", "Mean_Simpson", "Mean_Shannon","SE_Total", "SE_Simpson", "SE_Shannon")
+  vals = c("Sample_Size","Mean_Total", "Mean_Shannon","SE_Total", "SE_Shannon")
   
   samples = unique(data[,1])
   
@@ -64,13 +62,11 @@ resamp = function(data,se,N){
     
     TAv = mean(as.numeric(store[,1]))
     TSE = sd(as.numeric(store[,1]))/sqrt(N)
-    SiAv = mean(as.numeric(store[,2]))
-    SiSE = sd(as.numeric(store[,2]))/sqrt(N)
     ShAv = mean(as.numeric(store[,3]))
     ShSE = sd(as.numeric(store[,3]))/sqrt(N)
     
-    vals = rbind(vals,c(cho,TAv,SiAv,ShAv,TSE,SiSE,ShSE))
-    print(c(cho,TAv,SiAv,ShAv))
+    vals = rbind(vals,c(cho,TAv,ShAv,TSE,ShSE))
+    print(c(cho,TAv,ShAv))
   }
   
   vals = data.frame(vals)
